@@ -159,10 +159,6 @@
    (lambda (item)
      (add-to-list 'custom-theme-load-path item)))
 
-  (require 'solarized-definitions
-        (locate-file "solarized-definitions.el" custom-theme-load-path
-                    '("c" "")))
-
   (load-theme 'solarized-light t)
 
 ;;haskell
@@ -225,7 +221,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
+    (live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
