@@ -110,6 +110,9 @@
 ;;line numbering
 (global-linum-mode 1)
 
+;;ediff characterwise
+(setq-default ediff-forward-word-function 'forward-char)
+
 ;;IDO
 (defvar ido-enable-flex-matching nil)
 (defvar ido-enable-last-directory-history nil)
