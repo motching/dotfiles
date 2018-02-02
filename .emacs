@@ -214,7 +214,7 @@
  '(hl-fg-colors
    (quote
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
- '(js-indent-level 4)
+ '(js-indent-level 2)
  '(js2-bounce-indent-p t)
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
