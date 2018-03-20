@@ -224,7 +224,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
+    (rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
@@ -308,11 +308,12 @@
 ;; use web-mode for .jsx files
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
-;;js2-mode
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;;javascript
+;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 ;;(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-(add-hook 'js2-mode-hook (lambda () (company-mode t)))
-(add-hook 'js2-mode-hook (lambda () (js2-refactor-mode t)))
+(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
+;;(add-hook 'js2-mode-hook (lambda () (company-mode t)))
+;;(add-hook 'js2-mode-hook (lambda () (js2-refactor-mode t)))
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
 
