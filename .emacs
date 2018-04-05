@@ -16,6 +16,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+(require 'ansi-color)
+
 (defun helm-git-grep-with-prefix-arg ()
   (interactive)
   (setq current-prefix-arg '(4)) ; C-u
