@@ -313,6 +313,24 @@
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
 ;;javascript
+(global-set-key (kbd "C-c C-'") 'js2-display-error-list)
+(setq-default js2-global-externs '("module"
+                                   "require"
+                                   "buster"
+                                   "sinon"
+                                   "assert"
+                                   "refute"
+                                   "setTimeout"
+                                   "clearTimeout"
+                                   "setInterval"
+                                   "clearInterval"
+                                   "location"
+                                   "__dirname"
+                                   "console"
+                                   "JSON"
+                                   "google"
+                                   "Audio"))
+(setq-default js2-idle-timer-delay 0.1)
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 ;;(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
