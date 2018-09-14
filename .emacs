@@ -155,6 +155,10 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;;set emacs path from $PATH
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
 ;;load theme
 (require 'dash)
 (require 's)
@@ -287,9 +291,10 @@
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
 
-(let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
-  (setenv "PATH" (concat my-cabal-path path-separator (getenv "PATH")))
-  (add-to-list 'exec-path my-cabal-path))
+;;exec-path-from-shell should do this
+;; (let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
+;;   (setenv "PATH" (concat my-cabal-path path-separator (getenv "PATH")))
+;;   (add-to-list 'exec-path my-cabal-path))
 
 
 
@@ -322,8 +327,14 @@
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 
 ;;javascript
-(global-set-key (kbd "C-c C-'") 'js2-display-error-list)
-(setq-default js2-global-externs '("module"
+
+;;flycheck's syntax checking should be superior to js2-mode
+(setq js2-mode-show-parse-errors nil)
+(setq js2-mode-show-strict-warnings nil)
+;;(global-set-key (kbd "C-c C-'") 'js2-display-error-list)
+
+(setq-default js2-global-externs '("define"
+                                   "module"
                                    "require"
                                    "buster"
                                    "sinon"
@@ -381,14 +392,10 @@
 (setq split-height-threshold 0)
 (setq split-width-threshold nil)
 
-;;exec path
-(setq exec-path (append exec-path '("/usr/local/bin")))
-(setq exec-path (append exec-path '("/home/attila/.cabal/bin")))
-;; (use-package exec-path-from-shell
-;;   :ensure t
-;;   :config
-;;   (setq exec-path-from-shell-variables '("PATH"))
-;;   (exec-path-from-shell-initialize))
+;;exec-path-from-shell should do this
+;; (setq exec-path (append exec-path '("/usr/local/bin")))
+;; (setq exec-path (append exec-path '("/usr/local/bin")))
+;; (setq exec-path (append exec-path '("/home/attila/.cabal/bin")))
 
 ;;fold
 (require 'vimish-fold)
