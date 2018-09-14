@@ -27,7 +27,6 @@
 (global-set-key (kbd "C-x a") 'ace-window)
 (global-set-key (kbd "C-x c") 'company-complete)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x i") 'indent-region)
 (global-set-key (kbd "C-x x") 'replace-regexp)
 (global-set-key (kbd "C-x s") 'helm-git-grep-with-prefix-arg)
 (global-set-key (kbd "C-x w") 'delete-trailing-whitespace)
