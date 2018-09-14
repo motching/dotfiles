@@ -350,14 +350,13 @@
                                    "JSON"
                                    "google"
                                    "Audio"))
+
 (setq-default js2-idle-timer-delay 0.1)
 (add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 ;;(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 ;;(add-hook 'js2-mode-hook (lambda () (company-mode t)))
 ;;(add-hook 'js2-mode-hook (lambda () (js2-refactor-mode t)))
-(js2r-add-keybindings-with-prefix "C-c C-m")
-
 
 ;; http://www.flycheck.org/manual/latest/index.html
 (require 'flycheck)
@@ -371,8 +370,8 @@
   (append flycheck-disabled-checkers
     '(javascript-jshint)))
 
-;; use eslint with web-mode for jsx files
-(flycheck-add-mode 'javascript-eslint 'web-mode)
+;; use eslint with rjsx-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'rjsx-mode)
 
 ;; customize flycheck temp file prefix
 (setq-default flycheck-temp-prefix ".flycheck")
