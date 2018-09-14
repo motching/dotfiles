@@ -168,8 +168,14 @@
 
   (load-theme 'solarized-light t)
 
+(defun my-haskell-hook ()
+  (setq compile-command "stack build --fast --test --bench --no-run-tests --no-run-benchmarks"))
+
+
 ;;haskell
 (add-hook 'haskell-mode-hook #'hindent-mode)
+(add-hook 'haskell-mode-hook #'intero-mode)
+(add-hook 'haskell-mode-hook #'my-haskell-hook)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -228,7 +234,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
+    (paredit intero buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
