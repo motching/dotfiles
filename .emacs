@@ -99,6 +99,9 @@
 ;;smooth scrolling
 (setq scroll-conservatively 101)
 
+;;auto-revert (e.g. changing git branches)
+(global-auto-revert-mode t)
+
 ;;add semi-slow scroll
 (defun up-semi-slow () (interactive) (scroll-up 2))
 (defun down-semi-slow () (interactive) (scroll-down 2))
@@ -337,9 +340,9 @@
                                    "google"
                                    "Audio"))
 (setq-default js2-idle-timer-delay 0.1)
+(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 ;;(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-(add-to-list 'auto-mode-alist '("\\.js$" . rjsx-mode))
 ;;(add-hook 'js2-mode-hook (lambda () (company-mode t)))
 ;;(add-hook 'js2-mode-hook (lambda () (js2-refactor-mode t)))
 (js2r-add-keybindings-with-prefix "C-c C-m")
