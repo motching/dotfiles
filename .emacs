@@ -16,6 +16,21 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+(require 'package)
+(setq
+ package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                    ("org" . "http://orgmode.org/elpa/")
+   ;;                 ("marmalade" . "https://marmalade-repo.org/packages/")
+                    ("melpa" . "http://melpa.org/packages/")
+                    ("melpa-stable" . "http://stable.melpa.org/packages/"))
+ package-archive-priorities '(("melpa-stable" . 1)))
+
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+
 (require 'ansi-color)
 
 (defun helm-git-grep-with-prefix-arg ()
@@ -66,6 +81,16 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 (global-whitespace-mode t)
+
+;; http://www.flycheck.org/manual/latest/index.html
+(require 'flycheck)
+(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+(setq flycheck-pos-tip-timeout 1)
+(setq flycheck-display-errors-function nil)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;;completion
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;;replace in rectangles
 (cua-selection-mode 1)
@@ -139,20 +164,14 @@
 (define-key global-map [(insert)] nil)
 (define-key global-map [(control insert)] 'overwrite-mode)
 
-(require 'package)
-(setq
- package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                    ("org" . "http://orgmode.org/elpa/")
-   ;;                 ("marmalade" . "https://marmalade-repo.org/packages/")
-                    ("melpa" . "http://melpa.org/packages/")
-                    ("melpa-stable" . "http://stable.melpa.org/packages/"))
- package-archive-priorities '(("melpa-stable" . 1)))
-
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents)
-  (package-install 'use-package))
-(require 'use-package)
+;;ivy compilation
+(use-package counsel :bind (("C-c j" . counsel-imenu)
+                            ("M-x" . counsel-M-x)
+                            ("C-x C-f" . counsel-find-file)
+                            ("C-x b" . ivy-switch-buffer)
+                            ("C-x 4 b" . ivy-switch-buffer-other-window)
+                            ([M-c] . completion-at-point))
+  :config (ivy-mode 1))
 
 ;;set emacs path from $PATH
 (when (memq window-system '(mac ns x))
@@ -240,7 +259,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (paredit intero buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
+    (counsel eslint-fix ivy paredit intero buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
@@ -356,13 +375,6 @@
 ;;(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 ;;(add-hook 'js2-mode-hook (lambda () (company-mode t)))
 ;;(add-hook 'js2-mode-hook (lambda () (js2-refactor-mode t)))
-
-;; http://www.flycheck.org/manual/latest/index.html
-(require 'flycheck)
-(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-(setq flycheck-pos-tip-timeout 1)
-(setq flycheck-display-errors-function nil)
-(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; disable jshint since we prefer eslint checking
 (setq-default flycheck-disabled-checkers
