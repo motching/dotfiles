@@ -46,7 +46,7 @@
 (global-set-key (kbd "C-x s") 'helm-git-grep-with-prefix-arg)
 (global-set-key (kbd "C-x w") 'delete-trailing-whitespace)
 (global-set-key (kbd "C-x f") 'multi-occur-in-matching-buffers)
-(global-set-key (kbd "C-x t") 'treemacs-toggle)
+(global-set-key (kbd "C-x t") 'treemacs)
 (global-set-key (kbd "C-x e") 'list-flycheck-errors)
 
 (global-set-key (kbd "C-x m") 'mvn-compile)
