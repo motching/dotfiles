@@ -88,9 +88,18 @@
 (setq flycheck-pos-tip-timeout 1)
 (setq flycheck-display-errors-function nil)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+;;(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+
+(require 'paredit)
+(add-hook 'prog-mode-hook #'enable-paredit-mode)
+
+;;colored parentheses
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;;completion
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-dabbrev-downcase 0)
+(setq company-idle-delay 0)
 
 ;;replace in rectangles
 (cua-selection-mode 1)
