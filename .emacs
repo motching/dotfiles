@@ -65,6 +65,7 @@
 (global-set-key (kbd "C-c g b") 'magit-blame)
 (global-set-key (kbd "C-c g s") 'magit-status)
 (global-set-key (kbd "C-c m") 'mvn-compile)
+(global-set-key (kbd "C-c n") 'narrow-split)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (global-set-key (kbd "C-c s") 'helm-git-grep-with-prefix-arg)
 (global-set-key (kbd "C-c t") 'treemacs)
@@ -72,8 +73,7 @@
 (global-set-key (kbd "C-c x") 'replace-regexp)
 
 ;;window splitting
-(defun nars()
-  "narrow split"
+(defun narrow-split()
   (interactive)
   (split-window-below -9))
 
