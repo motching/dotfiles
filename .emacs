@@ -97,8 +97,9 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 ;;(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 
-(require 'paredit)
-(add-hook 'prog-mode-hook #'enable-paredit-mode)
+;; no paredit for now
+;; (require 'paredit)
+;; (add-hook 'prog-mode-hook #'enable-paredit-mode)
 
 ;;colored parentheses
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
