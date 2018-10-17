@@ -45,6 +45,8 @@
 (global-set-key (kbd "C-c a") 'ace-window)
 (global-set-key (kbd "C-c b") 'magit-blame)
 (global-set-key (kbd "C-c c") 'company-complete)
+(global-set-key (kbd "C-c d s") 'desktop-save)
+(global-set-key (kbd "C-c d c") 'desktop-change-dir)
 (global-set-key (kbd "C-c e") 'list-flycheck-errors)
 (global-set-key (kbd "C-c f") 'multi-occur-in-matching-buffers)
 (global-set-key (kbd "C-c g") 'magit-status)
