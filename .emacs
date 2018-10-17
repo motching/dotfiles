@@ -86,6 +86,9 @@
 (setq tab-width 4)
 (global-whitespace-mode t)
 
+;;faster than the default scp
+(setq tramp-default-method "ssh")
+
 ;; http://www.flycheck.org/manual/latest/index.html
 (require 'flycheck)
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
