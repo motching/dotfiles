@@ -38,6 +38,9 @@
   (setq current-prefix-arg '(4)) ; C-u
   (call-interactively 'helm-grep-do-git-grep))
 
+;;Undo tree
+(global-undo-tree-mode)
+
 ;; Projectile
 (projectile-mode +1)
 
