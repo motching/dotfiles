@@ -38,8 +38,12 @@
   (setq current-prefix-arg '(4)) ; C-u
   (call-interactively 'helm-grep-do-git-grep))
 
+;; Projectile
+(projectile-mode +1)
+
 ;;my keybindings
 (global-set-key (kbd "C-c a") 'ace-window)
+(global-set-key (kbd "C-c b") 'magit-blame)
 (global-set-key (kbd "C-c c") 'company-complete)
 (global-set-key (kbd "C-c e") 'list-flycheck-errors)
 (global-set-key (kbd "C-c f") 'multi-occur-in-matching-buffers)
@@ -74,9 +78,6 @@
 ;;disable electric-indent-mode
 (electric-indent-mode -1)
 (add-hook 'after-change-major-mode-hook (lambda() (electric-indent-mode -1)))
-
-;; Projectile
-(projectile-mode +1)
 
 ;;whitespace-mode
 (require 'whitespace)
