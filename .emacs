@@ -44,15 +44,26 @@
 ;; Projectile
 (projectile-mode +1)
 
+;;bookmark cycle in all buffers
+(setq bm-cycle-all-buffers t)
+(setq bm-highlight-style 'bm-highlight-line-and-fringe)
+
 ;;my keybindings
 (global-set-key (kbd "C-c a") 'ace-window)
-(global-set-key (kbd "C-c b") 'magit-blame)
+(global-set-key (kbd "C-c b a") 'bm-show-all)
+(global-set-key (kbd "C-c b c") 'bm-toggle-cycle-all-buffers)
+(global-set-key (kbd "C-c b k") 'bm-remove-all-all-buffers)
+(global-set-key (kbd "C-c b r") 'bm-remove-all-current-buffer)
+(global-set-key (kbd "C-c b t") 'bm-toggle)
+(global-set-key (kbd "C-c b n") 'bm-next)
+(global-set-key (kbd "C-c b p") 'bm-previous)
 (global-set-key (kbd "C-c c") 'company-complete)
 (global-set-key (kbd "C-c d s") 'desktop-save)
 (global-set-key (kbd "C-c d c") 'desktop-change-dir)
 (global-set-key (kbd "C-c e") 'list-flycheck-errors)
 (global-set-key (kbd "C-c f") 'multi-occur-in-matching-buffers)
-(global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-c g b") 'magit-blame)
+(global-set-key (kbd "C-c g s") 'magit-status)
 (global-set-key (kbd "C-c m") 'mvn-compile)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (global-set-key (kbd "C-c s") 'helm-git-grep-with-prefix-arg)
@@ -281,13 +292,14 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (counsel eslint-fix ivy paredit intero buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
+    (bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit intero buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(tab-width 4)
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
+ '(treemacs-space-between-root-nodes nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
