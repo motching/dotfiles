@@ -75,6 +75,10 @@
 (electric-indent-mode -1)
 (add-hook 'after-change-major-mode-hook (lambda() (electric-indent-mode -1)))
 
+;; Projectile
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 ;;whitespace-mode
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
