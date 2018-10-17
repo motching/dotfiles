@@ -39,17 +39,17 @@
   (call-interactively 'helm-grep-do-git-grep))
 
 ;;my keybindings
-(global-set-key (kbd "C-x a") 'ace-window)
-(global-set-key (kbd "C-x c") 'company-complete)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x x") 'replace-regexp)
-(global-set-key (kbd "C-x s") 'helm-git-grep-with-prefix-arg)
-(global-set-key (kbd "C-x w") 'delete-trailing-whitespace)
-(global-set-key (kbd "C-x f") 'multi-occur-in-matching-buffers)
-(global-set-key (kbd "C-x t") 'treemacs)
-(global-set-key (kbd "C-x e") 'list-flycheck-errors)
-
-(global-set-key (kbd "C-x m") 'mvn-compile)
+(global-set-key (kbd "C-c a") 'ace-window)
+(global-set-key (kbd "C-c c") 'company-complete)
+(global-set-key (kbd "C-c e") 'list-flycheck-errors)
+(global-set-key (kbd "C-c f") 'multi-occur-in-matching-buffers)
+(global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-c m") 'mvn-compile)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(global-set-key (kbd "C-c s") 'helm-git-grep-with-prefix-arg)
+(global-set-key (kbd "C-c t") 'treemacs)
+(global-set-key (kbd "C-c w") 'delete-trailing-whitespace)
+(global-set-key (kbd "C-c x") 'replace-regexp)
 
 ;;window splitting
 (defun nars()
@@ -77,7 +77,6 @@
 
 ;; Projectile
 (projectile-mode +1)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;;whitespace-mode
 (require 'whitespace)
