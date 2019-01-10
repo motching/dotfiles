@@ -67,6 +67,9 @@
 (global-set-key (kbd "C-c g d") 'magit-diff-popup)
 (global-set-key (kbd "C-c g f") 'magit-file-popup)
 (global-set-key (kbd "C-c g s") 'magit-status)
+(global-set-key (kbd "C-c l s") 'slack-start)
+(global-set-key (kbd "C-c l c") 'slack-channel-select)
+(global-set-key (kbd "C-c l i") 'slack-im-select)
 (global-set-key (kbd "C-c m") 'mvn-compile)
 (global-set-key (kbd "C-c n") 'narrow-split)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -85,6 +88,57 @@
 (defun mvn-compile ()
   (interactive)
   (mvn "-q compile")))
+
+;; slack
+
+(defun trim-final-newline (string)
+  (let ((len (length string)))
+    (cond
+      ((and (> len 0) (eql (aref string (- len 1)) ?\n))
+       (substring string 0 (- len 1)))
+      (t string))))
+
+(defun get-string-from-file (filePath)
+  "Return filePath's file content."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (buffer-string)))
+
+;;(el-get-bundle slack)
+(use-package slack
+  :commands (slack-start)
+  :init
+  (setq slack-buffer-emojify t)
+  (setq slack-prefer-current-team t)
+  :config
+  (slack-register-team
+   :name "fusedesk"
+   :default t
+   :client-id "aaaaaaaaaaa.00000000000"
+   :client-secret "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+   :token (trim-final-newline (get-string-from-file "~/.emacs.d/slack_token"))
+   :subscribed-channels '()
+   :full-and-display-names t)
+)
+
+(use-package alert
+  :commands (alert)
+  :init
+  (setq alert-default-style 'notifier))
+
+(defun slack-user-status (_id _team) "")
+
+;; (add-to-list
+;;  'alert-user-configuration
+;;  '(((:title . "\\(fusedesk-dev\\)")
+;;     (:category . "slack"))
+;;    libnotify nil))
+
+;; (add-to-list
+;;  'alert-user-configuration
+;;  '(((:message . "@akovacs101386\\|Attila"))
+;;    libnotify nil)
+;; )
 
 ;;disable splash screen
 (setq inhibit-startup-message t)
