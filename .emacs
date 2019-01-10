@@ -347,7 +347,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit intero buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck ensime dockerfile-mode)))
+    (less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit intero buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
@@ -436,6 +436,7 @@
 
 ;and html;
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+
 ;;javascript
 
 ;;flycheck's syntax checking should be superior to js2-mode
@@ -559,7 +560,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(slack-message-output-header ((t (:foreground "dark goldenrod" :weight bold :height 1.0 :family "Source Code Pro"))))
+ '(slack-message-output-text ((t (:foreground "dark olive green" :weight bold :height 0.9 :family "Source Code Pro")))))
 ;;;;;;;;;;;;;;SUPPRESSED WARNINGS;;;;;;;;;;;;;;;;;
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
