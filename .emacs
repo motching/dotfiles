@@ -204,9 +204,7 @@
 (use-package counsel :bind (("C-c j" . counsel-imenu)
                             ("M-x" . counsel-M-x)
                             ("C-x C-f" . counsel-find-file)
-                            ("C-x b" . ivy-switch-buffer)
-                            ("C-x 4 b" . ivy-switch-buffer-other-window)
-                            ([M-c] . completion-at-point))
+                            ("C-X 4 b" . ivy-switch-buffer-other-window))
   :config (ivy-mode 1))
 
 ;;set emacs path from $PATH
