@@ -48,6 +48,10 @@
 (setq bm-cycle-all-buffers t)
 (setq bm-highlight-style 'bm-highlight-line-and-fringe)
 
+;;this will help remember TRAMP sessions
+(setq desktop-files-not-to-save "^$")
+(setq desktop-buffers-not-to-save "^$")
+
 ;;my keybindings
 (global-set-key (kbd "C-c a") 'ace-window)
 (global-set-key (kbd "C-c b a") 'bm-show-all)
@@ -161,6 +165,10 @@
 
 ;;faster than the default scp
 (setq tramp-default-method "ssh")
+
+;;ttracker settings
+(setq tramp-default-user "deploy")
+(setq tramp-default-host "trucktracker.net")
 
 ;; http://www.flycheck.org/manual/latest/index.html
 (require 'flycheck)
