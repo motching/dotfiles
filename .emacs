@@ -437,8 +437,8 @@
 (add-hook 'scala-mode-hook 'ensime-mode)
 
 ;;cscope
-(require 'xcscope)
-(cscope-setup)
+;; (require 'xcscope)
+;; (cscope-setup)
 
 ;; use web-mode for .jsx files
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
