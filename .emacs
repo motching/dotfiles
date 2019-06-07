@@ -77,6 +77,7 @@
 (global-set-key (kbd "C-c m") 'mvn-compile)
 (global-set-key (kbd "C-c n") 'narrow-split)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "C-c s") 'helm-git-grep-with-prefix-arg)
 (global-set-key (kbd "C-c t") 'treemacs)
 (global-set-key (kbd "C-c w") 'delete-trailing-whitespace)
@@ -355,7 +356,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit intero buffer-move rjsx-mode magit-gh-pulls sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs xcscope use-package solarized-theme magit js2-refactor js2-closure helm flycheck dockerfile-mode)))
+    (magit yaml-mode flycheck-yamllint less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit buffer-move rjsx-mode sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs use-package solarized-theme js2-refactor js2-closure helm flycheck dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
