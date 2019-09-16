@@ -188,8 +188,8 @@
 
 ;;completion
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-dabbrev-downcase 0)
 (setq company-idle-delay 0)
+(setq company-dabbrev-downcase nil)
 
 ;;replace in rectangles
 (cua-selection-mode 1)
