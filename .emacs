@@ -67,7 +67,7 @@
 (global-set-key (kbd "C-c e l") 'list-flycheck-errors)
 (global-set-key (kbd "C-c e f") 'eslint-fix)
 (global-set-key (kbd "C-c f") 'multi-occur-in-matching-buffers)
-(global-set-key (kbd "C-c g b") 'magit-blame)
+(global-set-key (kbd "C-c g b") 'magit-blame-addition)
 (global-set-key (kbd "C-c g d") 'magit-diff-popup)
 (global-set-key (kbd "C-c g f") 'magit-file-popup)
 (global-set-key (kbd "C-c g s") 'magit-status)
