@@ -292,14 +292,29 @@
 
   (load-theme 'solarized-light t)
 
-(defun my-haskell-hook ()
-  (setq compile-command "stack build --fast --test --bench --no-run-tests --no-run-benchmarks"))
+;; (defun my-haskell-hook ()
+;;   (setq compile-command "stack build --fast --test --bench --no-run-tests --no-run-benchmarks"))
 
 
-;;haskell
-(add-hook 'haskell-mode-hook #'hindent-mode)
-(add-hook 'haskell-mode-hook #'intero-mode)
-(add-hook 'haskell-mode-hook #'my-haskell-hook)
+;; ;;haskell
+;; (add-hook 'haskell-mode-hook #'hindent-mode)
+;; (add-hook 'haskell-mode-hook #'my-haskell-hook)
+
+(setq haskell-process-args-ghci
+      '("-ferror-spans" "-fshow-loaded-modules"))
+
+;; (setq haskell-process-args-cabal-repl
+;;       '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
+
+;; (setq haskell-process-args-stack-ghci
+;;       '("--ghci-options=-ferror-spans -fshow-loaded-modules"
+;;         "--no-build" "--no-load"))
+
+;; (setq haskell-process-args-cabal-new-repl
+;;       '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
+
+;; (setq haskell-process-args-cabal-repl
+;; '("--ghc-options -fshow-loaded-modules --ghc-options -ferror-spans"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -358,7 +373,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (magit yaml-mode flycheck-yamllint less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit buffer-move rjsx-mode sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs use-package solarized-theme js2-refactor js2-closure helm flycheck dockerfile-mode)))
+    (xcscope counsel-etags magit yaml-mode flycheck-yamllint less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit buffer-move rjsx-mode sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs use-package solarized-theme js2-refactor js2-closure helm flycheck dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
