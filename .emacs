@@ -71,6 +71,8 @@
 (global-set-key (kbd "C-c g d") 'magit-diff-popup)
 (global-set-key (kbd "C-c g f") 'magit-file-popup)
 (global-set-key (kbd "C-c g s") 'magit-status)
+(global-set-key (kbd "C-c i d") 'insert-debugger)
+(global-set-key (kbd "C-c i l") 'insert-console-log)
 (global-set-key (kbd "C-c l s") 'slack-start)
 (global-set-key (kbd "C-c l c") 'slack-channel-select)
 (global-set-key (kbd "C-c l i") 'slack-im-select)
@@ -563,6 +565,14 @@
             ;; Default indentation is usually 2 spaces, changing to 4.
         (defvar sgml-basic-offset)
             (set (make-local-variable 'sgml-basic-offset) 4)))
+
+;; my macros
+(fset 'insert-console-log
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 return up tab tab tab 99 111 110 115 111 108 101 46 108 111 103 40 41 59 left left] 0 "%d")) arg)))
+
+(fset 'insert-debugger
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 return up tab tab 105 102 32 40 116 114 117 101 41 33554464 123 return tab tab 100 101 98 117 103 103 101 114 return tab 125 24 19] 0 "%d")) arg)))
+
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
