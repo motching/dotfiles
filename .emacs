@@ -163,7 +163,7 @@
 (require 'whitespace)
 (setq whitespace-style '(face empty tabs lines-tail trailing))
 (setq-default indent-tabs-mode nil)
-(setq tab-width 4)
+(setq tab-width 2)
 (global-whitespace-mode t)
 
 ;;faster than the default scp
@@ -541,39 +541,13 @@
       ad-do-it)
     ad-do-it))
 
-;;C-mode
-(defvar c-mode-hook
-      '(lambda ()
-         (c-set-style "BSD")
-         ;;
-         ;; Change this you you want a different basic indentation step.
-         ;;
-         (require 'xcscope)
-         (cscope-setup)
-         (setq c-basic-offset 4)
-         ;;
-         ;; The next 2 calls invert the normal c-mode meanings
-         ;; of LF and CR. They make CR automatically indent
-         ;; the next line. Remove them if you do not like that.
-         ;;
-         (define-key c-mode-map "\r" 'newline-and-indent)
-         (define-key c-mode-map "\n" 'newline) ; newline = C-j
 
-         (setq case-fold-search nil) ; C is case-sensitive
-         ))
+(defun my-c-hook ()
+  (setq c-basic-offset 2)
+  (require 'xcscope)
+          (cscope-setup))
 
-;;C++-mode
-
-(defvar c++-mode-hook
-      '(lambda ()
-         (c-set-style "BSD")
-         (setq c-basic-offset 4)
-
-         (define-key c++-mode-map "\r" 'newline-and-indent)
-         (define-key c++-mode-map "\n" 'newline) ; newline = C-j
-
-         (setq case-fold-search nil) ; C++ is case-sensitive
-         ))
+(add-hook 'c-mode-hook #'my-c-hook)
 
 (add-hook 'html-mode-hook
           (lambda ()
