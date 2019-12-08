@@ -33,10 +33,10 @@
 
 (require 'ansi-color)
 
-(defun helm-git-grep-with-prefix-arg ()
-  (interactive)
-  (setq current-prefix-arg '(4)) ; C-u
-  (call-interactively 'helm-grep-do-git-grep))
+;; (defun helm-git-grep-with-prefix-arg ()
+;;   (interactive)
+;;   (setq current-prefix-arg '(4)) ; C-u
+;;   (call-interactively 'helm-grep-do-git-grep))
 
 ;;Undo tree
 (global-undo-tree-mode)
@@ -80,10 +80,16 @@
 (global-set-key (kbd "C-c n") 'narrow-split)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (global-set-key (kbd "C-c r") 'revert-buffer)
-(global-set-key (kbd "C-c s") 'helm-git-grep-with-prefix-arg)
+(global-set-key (kbd "C-c s s") 'helm-git-grep-with-prefix-arg)
+(global-set-key (kbd "C-c s a") 'helm-git-grep-at-point)
 (global-set-key (kbd "C-c t") 'treemacs)
 (global-set-key (kbd "C-c w") 'delete-trailing-whitespace)
 (global-set-key (kbd "C-c x") 'replace-regexp)
+
+(defun helm-git-grep-with-prefix-arg ()
+  (interactive)
+  (setq current-prefix-arg '(4)) ; C-u
+  (call-interactively 'helm-grep-do-git-grep))
 
 ;;window splitting
 (defun narrow-split()
@@ -291,6 +297,8 @@
      (add-to-list 'custom-theme-load-path item)))
 
   (load-theme 'solarized-light t)
+  ;;(load-theme 'plan9)
+  ;;(load-theme 'one-themes)
 
 ;; (defun my-haskell-hook ()
 ;;   (setq compile-command "stack build --fast --test --bench --no-run-tests --no-run-benchmarks"))
@@ -330,7 +338,7 @@
  '(cua-read-only-cursor-color "#859900")
  '(custom-safe-themes
    (quote
-    ("a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+    ("285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "0dd2666921bd4c651c7f8a724b3416e95228a13fca1aa27dc0022f4e023bf197" "653574dd35a64b45030075c99bb9e73f26d8abc7f21e145321e64fa2659fb6f5" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "30289fa8d502f71a392f40a0941a83842152a68c54ad69e0638ef52f04777a4c" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(fci-rule-color "#eee8d5")
  '(haskell-ask-also-kill-buffers nil)
  '(haskell-compile-cabal-build-command
@@ -373,7 +381,7 @@
  '(org-startup-truncated nil)
  '(package-selected-packages
    (quote
-    (xcscope counsel-etags magit yaml-mode flycheck-yamllint less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit buffer-move rjsx-mode sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs use-package solarized-theme js2-refactor js2-closure helm flycheck dockerfile-mode)))
+    (typescript-mode one-themes silkworm-theme plan9-theme xcscope counsel-etags magit yaml-mode flycheck-yamllint less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit buffer-move rjsx-mode sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs use-package solarized-theme js2-refactor js2-closure helm flycheck dockerfile-mode)))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
