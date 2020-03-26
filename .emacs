@@ -33,11 +33,6 @@
 
 (require 'ansi-color)
 
-;; (defun helm-git-grep-with-prefix-arg ()
-;;   (interactive)
-;;   (setq current-prefix-arg '(4)) ; C-u
-;;   (call-interactively 'helm-grep-do-git-grep))
-
 ;;Undo tree
 (global-undo-tree-mode)
 
@@ -80,16 +75,11 @@
 (global-set-key (kbd "C-c n") 'narrow-split)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (global-set-key (kbd "C-c r") 'revert-buffer)
-(global-set-key (kbd "C-c s s") 'helm-git-grep-with-prefix-arg)
+(global-set-key (kbd "C-c s s") 'helm-git-grep)
 (global-set-key (kbd "C-c s a") 'helm-git-grep-at-point)
 (global-set-key (kbd "C-c t") 'treemacs)
 (global-set-key (kbd "C-c w") 'delete-trailing-whitespace)
 (global-set-key (kbd "C-c x") 'replace-regexp)
-
-(defun helm-git-grep-with-prefix-arg ()
-  (interactive)
-  (setq current-prefix-arg '(4)) ; C-u
-  (call-interactively 'helm-grep-do-git-grep))
 
 ;;window splitting
 (defun narrow-split()
@@ -348,6 +338,7 @@
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote cabal-repl))
  '(haskell-tags-on-save t)
+ '(helm-git-grep-candidate-number-limit nil)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -568,7 +559,7 @@
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 return up tab tab tab 99 111 110 115 111 108 101 46 108 111 103 40 41 59 left left] 0 "%d")) arg)))
 
 (fset 'insert-debugger
-   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 return up tab tab 105 102 32 40 116 114 117 101 41 33554464 123 return tab tab 100 101 98 117 103 103 101 114 return tab 125 24 19] 0 "%d")) arg)))
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([1 return up tab tab 105 102 32 40 116 114 117 101 41 33554464 123 return tab tab 100 101 98 117 103 103 101 114 return tab 125 24 19 up up right] 0 "%d")) arg)))
 
 
 (custom-set-faces
