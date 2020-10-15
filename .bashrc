@@ -144,10 +144,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#virtualenv
-export WORKON_HOME=~/.venvironments
-source /usr/local/bin/virtualenvwrapper.sh
-
 #postgres
 export PGHOST="localhost"
 export PGUSER="postgres"
