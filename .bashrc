@@ -152,3 +152,7 @@ export PGPASSWORD="psql_pw"
 #cypress tests. These have to start with CYPRESS_, otherwise they won't work
 export CYPRESS_USERNAME="cypressatfusedesk3245@mailinator.com"
 export CYPRESS_PASSWORD="BigBlackHorseAndTheCherryTree"
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
