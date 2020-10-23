@@ -34,6 +34,9 @@
 (use-package ansi-color
   :ensure t)
 
+(use-package exec-path-from-shell
+  :ensure t)
+
 ;;Undo tree
 (global-undo-tree-mode)
 
@@ -49,6 +52,12 @@
 (setq desktop-buffers-not-to-save "^$")
 
 (use-package magit
+  :ensure t)
+
+(use-package helm
+  :ensure t)
+
+(use-package helm-git-grep
   :ensure t)
 
 ;;my keybindings
@@ -72,6 +81,7 @@
 (global-set-key (kbd "C-c g s") 'magit-status)
 (global-set-key (kbd "C-c i d") 'insert-debugger)
 (global-set-key (kbd "C-c i l") 'insert-console-log)
+(global-set-key (kbd "C-c k") 'kill-whole-line)
 (global-set-key (kbd "C-c l s") 'slack-start)
 (global-set-key (kbd "C-c l c") 'slack-channel-select)
 (global-set-key (kbd "C-c l i") 'slack-im-select)
@@ -310,7 +320,10 @@
   (lambda (item)
     (add-to-list 'custom-theme-load-path item)))
 
-;;(load-theme 'solarized-light t)
+(use-package solarized-theme
+  :ensure t)
+
+(load-theme 'solarized-light t)
 ;;(load-theme 'plan9)
 ;;(load-theme 'one-themes)
 
@@ -478,6 +491,10 @@
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 
 ;;javascript
+(use-package rjsx-mode
+  :ensure t)
+(use-package web-mode
+  :ensure t)
 
 ;;flycheck's syntax checking should be superior to js2-mode
 (setq js2-mode-show-parse-errors nil)
