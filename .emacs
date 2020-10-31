@@ -66,6 +66,11 @@
 (use-package treemacs
   :ensure t)
 
+(use-package solarized-theme
+  :ensure t)
+
+(load-theme 'solarized-light t)
+
 ;;my keybindings
 (global-set-key (kbd "C-c a") 'ace-window)
 (global-set-key (kbd "C-c b a") 'bm-show-all)
@@ -92,12 +97,17 @@
 (global-set-key (kbd "C-c l c") 'slack-channel-select)
 (global-set-key (kbd "C-c l i") 'slack-im-select)
 (global-set-key (kbd "C-c m") 'mvn-compile)
+(global-set-key (kbd "C-c m") 'mvn-compile)
 (global-set-key (kbd "C-c n") 'narrow-split)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 (global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "C-c s s") 'helm-git-grep)
 (global-set-key (kbd "C-c s a") 'helm-git-grep-at-point)
-(global-set-key (kbd "C-c t") 'treemacs)
+;; not necessarily a good idea to put multiple things under C-c t
+;; TODO think about keybindings
+(global-set-key (kbd "C-c t r") 'treemacs)
+(global-set-key (kbd "C-c t l") (lambda () (interactive) (load-theme 'solarized-light t)))
+(global-set-key (kbd "C-c t d") (lambda () (interactive) (load-theme 'lsolarized-dark t)))
 (global-set-key (kbd "C-c w") 'delete-trailing-whitespace)
 (global-set-key (kbd "C-c x") 'replace-regexp)
 
@@ -325,13 +335,6 @@
       (directory-files "~/.emacs.d/elpa/")))
   (lambda (item)
     (add-to-list 'custom-theme-load-path item)))
-
-(use-package solarized-theme
-  :ensure t)
-
-(load-theme 'solarized-light t)
-;;(load-theme 'plan9)
-;;(load-theme 'one-themes)
 
 ;; (defun my-haskell-hook ()
 ;;   (setq compile-command "stack build --fast --test --bench --no-run-tests --no-run-benchmarks"))
