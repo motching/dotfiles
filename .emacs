@@ -107,7 +107,7 @@
 ;; TODO think about keybindings
 (global-set-key (kbd "C-c t r") 'treemacs)
 (global-set-key (kbd "C-c t l") (lambda () (interactive) (load-theme 'solarized-light t)))
-(global-set-key (kbd "C-c t d") (lambda () (interactive) (load-theme 'lsolarized-dark t)))
+(global-set-key (kbd "C-c t d") (lambda () (interactive) (load-theme 'solarized-dark t)))
 (global-set-key (kbd "C-c w") 'delete-trailing-whitespace)
 (global-set-key (kbd "C-c x") 'replace-regexp)
 
