@@ -60,6 +60,12 @@
 (use-package helm-git-grep
   :ensure t)
 
+(use-package php-mode
+  :ensure t)
+
+(use-package treemacs
+  :ensure t)
+
 ;;my keybindings
 (global-set-key (kbd "C-c a") 'ace-window)
 (global-set-key (kbd "C-c b a") 'bm-show-all)
