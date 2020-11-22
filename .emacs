@@ -34,6 +34,21 @@
 (use-package ansi-color
   :ensure t)
 
+(use-package prettier
+  :ensure t)
+
+(use-package indium
+  :ensure t)
+
+(use-package dante
+  :ensure t
+  :after haskell-mode
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  (add-hook 'haskell-mode-hook 'dante-mode)
+  )
+
 (use-package exec-path-from-shell
   :ensure t)
 
@@ -85,7 +100,7 @@
 (global-set-key (kbd "C-c d c") 'desktop-change-dir)
 (global-set-key (kbd "C-c e l") 'list-flycheck-errors)
 (global-set-key (kbd "C-c e f") 'eslint-fix)
-(global-set-key (kbd "C-c f") 'multi-occur-in-matching-buffers)
+(global-set-key (kbd "C-c e p") 'prettier-prettify)
 (global-set-key (kbd "C-c g b") 'magit-blame-addition)
 (global-set-key (kbd "C-c g d") 'magit-diff-popup)
 (global-set-key (kbd "C-c g f") 'magit-file-popup)
@@ -411,7 +426,7 @@
  '(org-startup-folded 'showeverything)
  '(org-startup-truncated nil)
  '(package-selected-packages
-   '(typescript-mode one-themes silkworm-theme plan9-theme xcscope counsel-etags magit yaml-mode flycheck-yamllint less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit buffer-move rjsx-mode sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs use-package solarized-theme js2-refactor js2-closure helm flycheck dockerfile-mode))
+   '(dante indium prettier typescript-mode one-themes silkworm-theme plan9-theme xcscope counsel-etags magit yaml-mode flycheck-yamllint less-css-mode web-mode php-mode elm-mode slack bm undo-tree org-jira js-doc company-tern tern counsel eslint-fix ivy paredit buffer-move rjsx-mode sass-mode json-mode flx-ido helm-projectile projectile live-py-mode flycheck-pycheckers helm-git-grep company circe vimish-fold exec-path-from-shell mvn rainbow-delimiters hindent ghc ghc-imported-from ghci-completion haskell-mode scion treemacs use-package solarized-theme js2-refactor js2-closure helm flycheck dockerfile-mode))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
